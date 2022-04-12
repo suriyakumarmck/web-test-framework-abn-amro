@@ -1,4 +1,6 @@
 import type { Options } from '@wdio/types'
+import allure from "@wdio/allure-reporter"
+import fs from "fs"
 
 export const config: Options.Testrunner = {
     //
@@ -161,7 +163,16 @@ export const config: Options.Testrunner = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec',['allure', {outputDir: 'allure-results'}]],
+    reporters: ['spec',
+    [
+        'allure', 
+        {
+            outputDir: 'allure-results',
+            disableWebdriverStepsReporting: true,
+            useCucumberStepReporter: true
+        }
+    ]
+],
 
 
     //
@@ -199,13 +210,16 @@ export const config: Options.Testrunner = {
     // it and to build services around it. You can either apply a single function or an array of
     // methods to it. If one of them returns with a promise, WebdriverIO will wait until that promise got
     // resolved to continue.
-    /**
+        /**
      * Gets executed once before all workers get launched.
      * @param {Object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-    // onPrepare: function (config, capabilities) {
-    // },
+    onPrepare: function (config, capabilities) {
+            if (fs.existsSync("./allure-results")) {
+                fs.rmdirSync("./allure-results", { recursive: true })
+            }
+        },
     /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service
      * for that worker as well as modify runtime environments in an async fashion.
@@ -267,8 +281,14 @@ export const config: Options.Testrunner = {
      * @param {ITestCaseHookParameter} world    world object containing information on pickle and test step
      * @param {Object}                 context  Cucumber World object
      */
-    // beforeScenario: function (world, context) {
-    // },
+     beforeScenario: function (world) {
+        let arr = world.pickle.name.split(/:/)
+        // @ts-ignore
+        if(arr.length > 0) browser.config.testid = arr[0]
+        // @ts-ignore
+        if(!browser.config.testid) throw Error(`Error getting testid for current scenario: ${world.pickle.name}`)
+
+    },
     /**
      *
      * Runs before a Cucumber Step.
@@ -289,8 +309,12 @@ export const config: Options.Testrunner = {
      * @param {number}             result.duration  duration of scenario in milliseconds
      * @param {Object}             context          Cucumber World object
      */
-    // afterStep: function (step, scenario, result, context) {
-    // },
+     afterStep: async function (step, scenario, result) {
+        // Take screenshot if failed
+        if(!result.passed){
+            await browser.takeScreenshot()
+        }
+    },
     /**
      *
      * Runs after a Cucumber Scenario.
