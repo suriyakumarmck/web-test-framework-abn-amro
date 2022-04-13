@@ -2,7 +2,7 @@ import { Given, When, Then } from "@wdio/cucumber-framework";
 import chai from "chai"
 
 Given(/^ABN AMRO open accounts page is opened$/, async function (){
-    await  browser.url("https://www.abnamro.nl/en/personal/payments/open-an-account/open-own-account.html")
+    await  browser.url("")
     await browser.maximizeWindow()
     let agreeElement = await $('[id=aab-cookie-consent-agree]')
     await agreeElement.click()

@@ -1,6 +1,8 @@
 import type { Options } from '@wdio/types'
 import allure from "@wdio/allure-reporter"
 import fs from "fs"
+let headless = process.env.HEADLESS
+let debug = process.env.DEBUG
 
 export const config: Options.Testrunner = {
     //
@@ -88,7 +90,11 @@ export const config: Options.Testrunner = {
         maxInstances: 5,
         //
         browserName: 'chrome',
-        acceptInsecureCerts: true
+        "goog:chromeOptions": {
+            args: headless.toUpperCase() === "Y" ? ["--disable-web-security", "--headless", "--disable-dev-shm-usage", "--no-sandbox", "--window-size=1920,1080"] : []
+        },
+        acceptInsecureCerts: true,
+        timeouts: { implicit: 10000, pageLoad: 20000, script: 30000 },
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
@@ -101,7 +107,7 @@ export const config: Options.Testrunner = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    logLevel: debug.toUpperCase() === "Y" ?  'info' : 'error',
     //
     // Set specific log levels per logger
     // loggers:
@@ -125,7 +131,7 @@ export const config: Options.Testrunner = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost',
+    baseUrl: 'https://www.abnamro.nl/en/personal/payments/open-an-account/open-own-account.html',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -195,7 +201,7 @@ export const config: Options.Testrunner = {
         // <boolean> fail if there are any undefined or pending steps
         strict: false,
         // <string> (expression) only execute the features or scenarios with tags matching the expression
-        tagExpression: '@demo',
+        tagExpression: '',
         // <number> timeout for step definitions
         timeout: 60000,
         // <boolean> Enable this config to treat undefined definitions as warnings.
@@ -217,7 +223,7 @@ export const config: Options.Testrunner = {
      */
     onPrepare: function (config, capabilities) {
             if (fs.existsSync("./allure-results")) {
-                fs.rmdirSync("./allure-results", { recursive: true })
+                fs.rmSync("./allure-results", { recursive: true })
             }
         },
     /**

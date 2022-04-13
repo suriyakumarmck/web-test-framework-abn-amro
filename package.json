@@ -5,7 +5,8 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "wdio": "wdio run wdio.conf.ts"
+        "test:headlessmode": "export DEBUG=N && export HEADLESS=Y && npx wdio wdio.conf.ts --cucumberOpts.tagExpression='@demo'",
+        "test:demo": "export DEBUG=N && export HEADLESS=N && npx wdio wdio.conf.ts --cucumberOpts.tagExpression='@demo'"
     },
     "keywords": [
         "web",
