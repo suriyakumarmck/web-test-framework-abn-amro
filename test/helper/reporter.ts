@@ -7,6 +7,7 @@ import logger from "./logger"
  * @param loglevel 
  * @param toAllure default true
  * @param msg 
+ * @param issueid in case of an known issue can specify the issue id (JIRA)
  */
 function addStep(testid: string, loglevel: string, msg: string, toAllure = true, issueid = undefined) {
     let arr = ["info", "debug", "warn", "error"]
