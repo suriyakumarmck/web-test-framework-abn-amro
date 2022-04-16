@@ -1,0 +1,18 @@
+{
+	"PRIVATE_ACCOUNT_DETAILS_VALID_DATA": {
+        "SALUTATION": "Mr",
+        "INITIAL": "J.L",
+        "FIRST_NAME":"JOHN",
+        "SURNAME": "DOE",
+        "DATE_OF_BIRTH":"06-03-1995",
+		"BSN_NO": "999999990",
+        "EMAIL": "johndoe@gmail.com",
+        "TELEPHONE":"+31616844359",
+		"ADDRESS": { "POSTAL_CODE": "1082 PP",
+        "HOUSE_NO": "10",
+        "STREET_NAME": "Gustav Mahlerlaan",
+        "TOWN": "AMSTERDAM",
+        "NATIONALITY": "Dutch"
+     }
+	}
+}
