@@ -94,7 +94,7 @@ export const config: Options.Testrunner = {
             args: headless.toUpperCase() === "Y" ? ["--disable-web-security", "--headless", "--disable-dev-shm-usage", "--no-sandbox", "--window-size=1920,1080"] : []
         },
         acceptInsecureCerts: true,
-        timeouts: { implicit: 10000, pageLoad: 20000, script: 30000 },
+        timeouts: { implicit: 3000, pageLoad: 20000, script: 30000 },
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
@@ -331,8 +331,9 @@ export const config: Options.Testrunner = {
      * @param {number}                 result.duration  duration of scenario in milliseconds
      * @param {Object}                 context          Cucumber World object
      */
-    // afterScenario: function (world, result, context) {
-    // },
+    afterScenario: async function (world, result, context) {
+        await browser.takeScreenshot()
+    },
     /**
      *
      * Runs after a Cucumber Feature.
