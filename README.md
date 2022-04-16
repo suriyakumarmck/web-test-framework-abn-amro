@@ -1,4 +1,4 @@
-![WDIO-CI](https://github.com/suriyakumarmck/web-test-framework-abn-amro/actions/workflows/WDIO-CI/badge.svg?branch=master&event=push)
+[![WDIO-CI](https://github.com/suriyakumarmck/web-test-framework-abn-amro/actions/workflows/WDIO-CI/badge.svg)](https://github.com/suriyakumarmck/web-test-framework-abn-amro/actions/workflows/wdio.ci.yml)
 
 # ABN AMRO web testing framework Assignment
 Web Automation Framework for ABN AMRO Assignment
