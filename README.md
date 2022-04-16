@@ -26,7 +26,7 @@ This framework is written in TypeScript using BDD cucumber and WebdriverIO follo
 - run following commands
  > 
         - npm install
- 		- brew install allure (for mac)
+        - brew install allure (for mac)
  
  **Test Execution** - Running Via Command Line
  - Open ```terminal```
@@ -70,21 +70,21 @@ This framework is written in TypeScript using BDD cucumber and WebdriverIO follo
 ## Framework Important Libraries:
 
 ### WDIO:
-    WebdriverIO allows you to automate any application written with modern web frameworks such as React, Angular, Polymeror Vue.js as well as native mobile applications for Android and iOS.
-    **Reference:** https://webdriver.io/
+WebdriverIO allows you to automate any application written with modern web frameworks such as React, Angular, Polymeror Vue.js as well as native mobile applications for Android and iOS.
+**Reference:** https://webdriver.io/
 
 ### Allure reporter:
-    Allure Framework is a flexible lightweight multi-language test report tool that not only shows a very concise representation of what have been tested in a neat web report form, but allows everyone participating in the development process to extract maximum of useful information from everyday execution of tests.
-    **Reference:** https://docs.qameta.io/allure/
+Allure Framework is a flexible lightweight multi-language test report tool that not only shows a very concise representation of what have been tested in a neat web report form, but allows everyone participating in the development process to extract maximum of useful information from everyday execution of tests.
+**Reference:** https://docs.qameta.io/allure/
 
 ### Winston logger:
-    winston is designed to be a simple and universal logging library with support for multiple transports. A transport is essentially a storage device for your logs. Each winston logger can have multiple transports (see: Transports) configured at different levels (see: Logging levels). For example, one may want error logs to be stored in a persistent remote location (like a database), but all logs output to the console or a local file.
-    **Reference:** https://www.npmjs.com/package/winston
+winston is designed to be a simple and universal logging library with support for multiple transports. A transport is essentially a storage device for your logs. Each winston logger can have multiple transports (see: Transports) configured at different levels (see: Logging levels). For example, one may want error logs to be stored in persistent remote location (like a database), but all logs output to the console or a local file.
+**Reference:** https://www.npmjs.com/package/winston
 
 ### Chai:
-    Chai is an assertion library, similar to Node's built-in assert. It makes testing much easier by giving you lots of assertions you can run against your code.
-    **Reference:** https://www.npmjs.com/package/winston
+Chai is an assertion library, similar to Node's built-in assert. It makes testing much easier by giving you lots of assertions you can run against your code.
+**Reference:** https://www.npmjs.com/package/winston
 
 ### Cucumber:
-    Cucumber can be used to implement automated tests based on scenarios described in your Gherkin feature files.
-    **Reference** https://cucumber.io/docs/cucumber/api/
+Cucumber can be used to implement automated tests based on scenarios described in your Gherkin feature files.
+**Reference** https://cucumber.io/docs/cucumber/api/
