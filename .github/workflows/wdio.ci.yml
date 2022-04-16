@@ -9,8 +9,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      LOG_LEVEL: ${{secrets.LOG_LEVEL}}
     steps:
       - name: Install Chromium
         run: sudo apt-get install chromium-browser
