@@ -1,4 +1,4 @@
-[![WDIO-CI](https://github.com/suriyakumarmck/web-test-framework-abn-amro/actions/workflows/wdio.ci.yml/badge.svg)](https://github.com/suriyakumarmck/web-test-framework-abn-amro/actions/workflows/wdio.ci.yml)
+[![CircleCI](https://circleci.com/gh/suriyakumarmck/web-test-framework-abn-amro/tree/master.svg?style=svg)](https://circleci.com/gh/suriyakumarmck/web-test-framework-abn-amro/tree/master)
 
 # ABN AMRO web testing framework Assignment
 Web Automation Framework for ABN AMRO Assignment
@@ -13,6 +13,7 @@ This framework is written in TypeScript using BDD cucumber and WebdriverIO follo
 
 **Core modules used** 
 - ```"wdio"``` which will install all relevant modules related to wdio(including cucumber, chai, winston, allureReporter and chromedriver)
+-  Integrated with CIRCLE CI CI/CD Pipeline
 
 **Requirements** 
 - Node v16.14.2(any latest version)
