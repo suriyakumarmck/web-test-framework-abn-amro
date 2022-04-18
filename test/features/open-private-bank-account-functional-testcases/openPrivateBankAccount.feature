@@ -1,10 +1,10 @@
-Feature: Test "Open new private bank account" functionality of ABN AMRO website
+Feature: Test "Open new private bank account" functionality of ABN AMRO online portal
 
   Background: User is on ABN Amro open bank account page
     Given ABN AMRO open accounts page is opened
 
   @sanity @happyFlow
-  Scenario: TC-01: Verify that new user can open bank private bank account with valid data
+  Scenario: TC-01: Verify that new user can open private bank account with valid data
 
     When user selects private banking to input valid address
     And navigate to your details tab to enter user details

@@ -1,6 +1,6 @@
-import { setWorldConstructor } from "@cucumber/cucumber";
-import chai from "chai"
+import { setWorldConstructor } from "@cucumber/cucumber"
 
+/** World class used to share data between different steps in an scenario*/
 class CustomWorld {
     testid: string
     constructor() {

@@ -5,7 +5,7 @@ Web Automation Framework for ABN AMRO Assignment
 
 # Framework Description
 
-This framework is written in TypeScript using BDD cucumber, and WebdriverIO follows layered architecture for UI testing, also integrated with Circle CI for CI/CD.
+Framework is written in TypeScript using BDD cucumber, and WebdriverIO follows layered architecture for UI testing, also integrated with Circle CI for CI/CD.
 
 
 - ```"tests > features > open-private-bank-account-functional-testcases"``` contains feature files written in Gherkin 
@@ -13,8 +13,13 @@ This framework is written in TypeScript using BDD cucumber, and WebdriverIO foll
 - ```"tests > page-objects"``` contains object oriented classes which defines each page in the UI
 
 **Core modules used** 
-- ```"wdio"``` which will install all relevant modules related to wdio(including cucumber, chai, winston, allureReporter and chromedriver)
--  Integrated with CIRCLE CI CI/CD Pipeline
+
+- ```"WDIO"```     -- Framework used to automate web
+- ```"Cucumber"``` -- BDD Test framework 
+- ```"Chai"```     -- Assertion library
+- ```"Winston"```  -- Logger
+- ```"Allure"```   -- Reporter
+- ```"CircleCI"``` -- CI/CD
 
 **Requirements** 
 - Node v16.14.2(any latest version)
@@ -68,6 +73,9 @@ This framework is written in TypeScript using BDD cucumber, and WebdriverIO foll
  		- allure open allure-report 
  The above command will open the allure html report on a browser which will provide the insights and screenshots about the test execution.
  For all other cucumber configuration check wdio.conf.ts
+
+## Logs:
+Winston execution logs can be found on /logs folder with time stamped.
 
 ## CI/CD
 This framework is currently integarted with Circle CI CI/CD pipeline to run testcase click on the above Pass badge from CircleCI to view the build & execution summary or click on the below link.

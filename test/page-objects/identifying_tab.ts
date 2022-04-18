@@ -65,8 +65,6 @@ class IdentifyingTab extends Page {
         reporter.addStep(testid, "info", `Notification msg: ${notificationText}`)
         chai.expect(notificationText).to.include("Unfortunately we can't help you online")
     }
-
-
 }
 
 export default new IdentifyingTab()
