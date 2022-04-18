@@ -26,3 +26,32 @@ Feature: Test "Open new private bank account" functionality of ABN AMRO website
       | TC-02  | Invalid data    | invalid    | invalid     | We do not recognise your postcode. Please check that it has been entered correctly. | Use only numbers.              |
       | TC-03  | Symbols         | @#$%       | @#$%        | We do not recognise your postcode. Please check that it has been entered correctly. | Use only numbers.              |
       | TC-04  | Empty data      |            |             | Fill in an answer to continue.                                                      | Fill in an answer to continue. |
+
+  @sanity
+  Scenario Outline: <TestId>: validate auto detect address feature
+
+    When user inputs house no <HouseNo> and postal code <PostalCode>
+    Then validate that <StreetName> and <TownName> is auto detected
+  
+  Examples:
+   | TestId | HouseNo | PostalCode | StreetName         | TownName   |
+   | TC-06  | 10      | 1082 PP    | Gustav Mahlerlaan  | AMSTERDAM  |
+   | TC-07  | 1       | 5046 GA    | Bart van Peltplein | Tilburg    |
+   | TC-08  | 4       | 1781 KK    | Koningsplein       | Den Helder |
+   | TC-09  | 77      | 3526 KT    | Vliegend Hertlaan  | Utrecht    |
+   | TC-10  | 2       | 2333 CT    | Bargelaan          | Leiden     |
+
+  @sanity
+  Scenario: TC-11: Validate diacritic characters are accepted in name details field
+
+    When user selects private banking to input valid address
+    And navigate to your details tab to enter diacritic name
+    Then validate that the diacritic characters are accepted
+  
+  @smoke @sanity
+  Scenario: TC-12: Validate Else Option on Identification tab
+
+    When user selects private banking to input valid address
+    And navigate to your details tab to enter user details
+    And user select else option on identication document
+    Then validate we can't help you online messsage

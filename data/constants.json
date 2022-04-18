@@ -14,5 +14,15 @@
         "TOWN": "AMSTERDAM",
         "NATIONALITY": "Dutch"
      }
+	},
+    "DIACRITIC_ACCOUNT_DETAILS": {
+        "SALUTATION": "Mr",
+        "INITIAL": "ü",
+        "FIRST_NAME":"Jürgen",
+        "SURNAME": "Müller",
+        "DATE_OF_BIRTH":"09-01-1997",
+		"BSN_NO": "319538217",
+        "EMAIL": "JürgenMüller@gmail.com",
+        "TELEPHONE":"+31616844359"
 	}
 }

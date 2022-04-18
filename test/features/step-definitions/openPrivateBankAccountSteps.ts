@@ -64,3 +64,37 @@ Then(/^user recives house number error (.*)$/, async function(alertMessage) {
 })
 
 
+When(/^user inputs invalid house house number (.*)$/, async function(houseNumber) {
+    await chooseBankAccountTab.enterHouseNumber(this.testid, houseNumber.trim())
+    await chooseBankAccountTab.houseNoSuffixInputBox.click()
+})
+
+When(/^user inputs house no (.*) and postal code (.*)$/, async function(houseNumber, postalCode) {
+
+    await chooseBankAccountTab.selectPrivateBanking(this.testid)
+    await chooseBankAccountTab.selectSelfAccount(this.testid)
+    await chooseBankAccountTab.inputHouseNoAndZipCode(this.testid, houseNumber, postalCode)
+})
+
+Then(/^validate that (.*) and (.*) is auto detected$/, async function(streetName, town) {
+
+    await chooseBankAccountTab.validateAutoFill(this.testid, streetName, town)
+})
+
+When(/^navigate to your details tab to enter diacritic name$/, async function() {
+    await personalDetailsTab.enterPersonaldetails(this.testid, constants.DIACRITIC_ACCOUNT_DETAILS)
+})
+
+Then(/^validate that the diacritic characters are accepted$/, async function() {
+
+    await identifyingTab.validateThanIdentificationTabIsOpen(this.testid)
+})
+
+When(/^user select else option on identication document$/, async function() {
+    await identifyingTab.selectElseoption(this.testid)
+})
+
+Then(/^validate we can't help you online messsage$/, async function() {
+
+    await identifyingTab.validateElseOptionNotificationMessage(this.testid)
+})

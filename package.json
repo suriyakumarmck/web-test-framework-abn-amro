@@ -8,7 +8,7 @@
         "test:ci": "export DEBUG=Y && export HEADLESS=Y && npx wdio wdio.conf.ts",
         "test:headlessmode": "export DEBUG=N && export HEADLESS=Y && npx wdio wdio.conf.ts --cucumberOpts.tagExpression",
         "test:debugmode": "export DEBUG=Y && export HEADLESS=N && npx wdio wdio.conf.ts --cucumberOpts.tagExpression",
-        "test": "export DEBUG=N && export HEADLESS=N && npx wdio wdio.conf.ts --cucumberOpts.tagExpression"
+        "test": "export DEBUG=N && export HEADLESS=N && npx wdio wdio.conf.ts --cucumberOpts.tagExpression=@test"
     },
     "keywords": [
         "web",
@@ -21,6 +21,7 @@
         "@wdio/cli": "^7.19.3",
         "@wdio/cucumber-framework": "^7.19.3",
         "@wdio/local-runner": "^7.19.3",
+        "@wdio/selenium-standalone-service": "^7.19.5",
         "@wdio/spec-reporter": "^7.19.1",
         "chai": "^4.3.6",
         "chromedriver": "^100.0.0",
