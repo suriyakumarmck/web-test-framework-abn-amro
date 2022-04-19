@@ -1,7 +1,6 @@
 import type { Options } from '@wdio/types'
 import fs from "fs"
 let headless = process.env.HEADLESS === undefined ? "N" : process.env.HEADLESS
-console.log(" undefined ${process.env.HEADLESS}")
 let debug = process.env.DEBUG === undefined ? "N" : process.env.DEBUG
 
 export const config: Options.Testrunner = {
