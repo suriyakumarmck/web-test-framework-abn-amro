@@ -53,11 +53,17 @@ Framework is written in TypeScript using BDD cucumber, and WebdriverIO follows l
 
  - to run tests on headless mode : 
  > 
- 		- npm run test:headlessmode @<tagname>
+ 	Linux/Mac:
+		 - npm run test:headlessmode @<tagname>
+	Windows:
+	     - npm run test:headlessmode:windows @<tagname>
 
  - to run tests on debug mode : 
  > 
- 		- npm run test:debugmode @<tagname>
+ 	Linux/Mac:
+		 - npm run test:debugmode @<tagname>
+	Windows:
+	     - npm run test:debugmode:windows @<tagname>
 
 ## Test Report: 
  This framework uses allure reporter and winston logger so after execution below directories will be generated at root level:

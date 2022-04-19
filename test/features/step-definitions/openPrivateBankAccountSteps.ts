@@ -60,7 +60,7 @@ Then(/^user receives postalcode error (.*)$/, async function(alertMessage) {
 })
 
 /** This function used to input house number*/
-When(/^user inputs invalid house house number (.*)$/, async function(houseNumber) {
+When(/^user inputs invalid house number (.*)$/, async function(houseNumber) {
     await chooseBankAccountTab.enterHouseNumber(this.testid, houseNumber.trim())
     await chooseBankAccountTab.houseNoSuffixInputBox.click()
 })

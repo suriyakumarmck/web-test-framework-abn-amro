@@ -13,12 +13,12 @@ Feature: Test "Open new private bank account" functionality of ABN AMRO online p
     Then user validates the information collected
     And personal account creation request is successful
 
-  @sanity @smoke
+  @smoke
   Scenario Outline: <TestId>: validate <TestDescription> error messages for Invalid Address attributes
 
     When user inputs invalid postalcode <PostalCode>
     Then user receives postalcode error <PostalCodeErrorMessage>
-    When user inputs invalid house house number <HouseNumber>
+    When user inputs invalid house number <HouseNumber>
     Then user recives house number error <HouseNumberErrorMessage>
 
   Examples:
@@ -35,21 +35,21 @@ Feature: Test "Open new private bank account" functionality of ABN AMRO online p
   
   Examples:
    | TestId | HouseNo | PostalCode | StreetName         | TownName   |
-   | TC-06  | 10      | 1082 PP    | Gustav Mahlerlaan  | AMSTERDAM  |
-   | TC-07  | 1       | 5046 GA    | Bart van Peltplein | Tilburg    |
-   | TC-08  | 4       | 1781 KK    | Koningsplein       | Den Helder |
-   | TC-09  | 77      | 3526 KT    | Vliegend Hertlaan  | Utrecht    |
-   | TC-10  | 2       | 2333 CT    | Bargelaan          | Leiden     |
+   | TC-05  | 10      | 1082 PP    | Gustav Mahlerlaan  | AMSTERDAM  |
+   | TC-06  | 1       | 5046 GA    | Bart van Peltplein | Tilburg    |
+   | TC-07  | 4       | 1781 KK    | Koningsplein       | Den Helder |
+   | TC-08  | 77      | 3526 KT    | Vliegend Hertlaan  | Utrecht    |
+   | TC-09  | 2       | 2333 CT    | Bargelaan          | Leiden     |
 
   @sanity
-  Scenario: TC-11: Validate diacritic characters are accepted in name details field
+  Scenario: TC-10: Validate diacritic characters are accepted in name details field
 
     When user selects private banking to input valid address
     And navigate to your details tab to enter diacritic name
     Then validate that the diacritic characters are accepted
   
   @smoke @sanity
-  Scenario: TC-12: Validate Else Option on Identification tab
+  Scenario: TC-11: Validate Else Option on Identification tab
 
     When user selects private banking to input valid address
     And navigate to your details tab to enter user details
